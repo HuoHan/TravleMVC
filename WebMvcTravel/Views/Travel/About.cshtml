@@ -1,0 +1,460 @@
+﻿<!doctype html>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tour Packer</title>
+</head>
+
+<body class="">
+
+    <!-- BEGIN # MODAL LOGIN -->
+    <div class="modal fade modal-login modal-border-transparent" id="loginModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <button type="button" class="btn btn-close close" data-dismiss="modal" aria-label="Close">
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                </button>
+
+                <div class="clear"></div>
+
+                <!-- Begin # DIV Form -->
+                <div id="modal-login-form-wrapper">
+
+                    <!-- Begin # Login Form -->
+                    <form id="login-form">
+
+                        <div class="modal-body pb-5">
+
+                            <h4 class="text-center heading mt-10 mb-20">Sign-in</h4>
+
+                            <button class="btn btn-facebook btn-block">Sign-in with Facebook</button>
+
+                            <div class="modal-seperator">
+                                <span>or</span>
+                            </div>
+
+                            <div class="form-group">
+                                <input id="login_username" class="form-control" placeholder="username" type="text">
+                            </div>
+                            <div class="form-group">
+                                <input id="login_password" class="form-control" placeholder="password" type="password">
+                            </div>
+
+                            <div class="form-group">
+                                <div class="row gap-5">
+                                    <div class="col-xs-6 col-sm-6 col-md-6">
+                                        <div class="checkbox-block fa-checkbox">
+                                            <input id="remember_me_checkbox" name="remember_me_checkbox" class="checkbox" value="First Choice" type="checkbox">
+                                            <label class="" for="remember_me_checkbox">remember</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-6 col-md-6 text-right">
+                                        <button id="login_lost_btn" type="button" class="btn btn-link">forgot pass?</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="modal-footer">
+
+                            <div class="row gap-10">
+                                <div class="col-xs-6 col-sm-6 mb-10">
+                                    <button type="submit" class="btn btn-primary btn-block">Sign-in</button>
+                                </div>
+                                <div class="col-xs-6 col-sm-6 mb-10">
+                                    <button type="submit" class="btn btn-primary btn-block btn-inverse" data-dismiss="modal" aria-label="Close">Cancel</button>
+                                </div>
+                            </div>
+                            <div class="text-left">
+                                No account?
+                                <button id="login_register_btn" type="button" class="btn btn-link">Register</button>
+                            </div>
+
+                        </div>
+                    </form>
+                    <!-- End # Login Form -->
+                    <!-- Begin | Lost Password Form -->
+                    <form id="lost-form" style="display:none;">
+                        <div class="modal-body pb-5">
+
+                            <h3 class="text-center heading mt-10 mb-20">Forgot password</h3>
+                            <div class="form-group mb-10">
+                                <input id="lost_email" class="form-control" type="text" placeholder="Enter Your Email">
+                            </div>
+
+                            <div class="text-center">
+                                <button id="lost_login_btn" type="button" class="btn btn-link">Sign-in</button> or
+                                <button id="lost_register_btn" type="button" class="btn btn-link">Register</button>
+                            </div>
+
+                        </div>
+
+                        <div class="modal-footer mt-10">
+
+                            <div class="row gap-10">
+                                <div class="col-xs-6 col-sm-6">
+                                    <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                                </div>
+                                <div class="col-xs-6 col-sm-6">
+                                    <button type="submit" class="btn btn-primary btn-inverse btn-block" data-dismiss="modal" aria-label="Close">Cancel</button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </form>
+                    <!-- End | Lost Password Form -->
+                    <!-- Begin | Register Form -->
+                    <form id="register-form" style="display:none;">
+
+                        <div class="modal-body pb-5">
+
+                            <h3 class="text-center heading mt-10 mb-20">Register</h3>
+
+                            <button class="btn btn-facebook btn-block">Register with Facebook</button>
+
+                            <div class="modal-seperator">
+                                <span>or</span>
+                            </div>
+
+                            <div class="form-group">
+                                <input id="register_username" class="form-control" type="text" placeholder="Username">
+                            </div>
+
+                            <div class="form-group">
+                                <input id="register_email" class="form-control" type="email" placeholder="Email">
+                            </div>
+
+                            <div class="form-group">
+                                <input id="register_password" class="form-control" type="password" placeholder="Password">
+                            </div>
+
+                            <div class="form-group">
+                                <input id="register_password_confirm" class="form-control" type="password" placeholder="Confirm Password">
+                            </div>
+
+                        </div>
+
+                        <div class="modal-footer mt-10">
+
+                            <div class="row gap-10">
+                                <div class="col-xs-6 col-sm-6 mb-10">
+                                    <button type="submit" class="btn btn-primary btn-block">Register</button>
+                                </div>
+                                <div class="col-xs-6 col-sm-6 mb-10">
+                                    <button type="submit" class="btn btn-primary btn-inverse btn-block" data-dismiss="modal" aria-label="Close">Cancel</button>
+                                </div>
+                            </div>
+
+                            <div class="text-left">
+                                Already have account? <button id="register_login_btn" type="button" class="btn btn-link">Sign-in</button>
+                            </div>
+
+                        </div>
+
+                    </form>
+                    <!-- End | Register Form -->
+
+                </div>
+                <!-- End # DIV Form -->
+
+            </div>
+        </div>
+    </div>
+    <!-- END # MODAL LOGIN -->
+    <!-- start Container Wrapper -->
+    <div class="container-wrapper">
+        <div class="clear"></div>
+        <!-- start Main Wrapper -->
+        <div class="main-wrapper scrollspy-container">
+
+            <!-- start end Page title -->
+            <div class="page-title" style="background-image:url('/Content/images/hero-header/breadcrumb.jpg');">
+
+                <div class="container">
+
+                    <div class="row">
+
+                        <div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3">
+
+                            <h1 class="hero-title">About Us</h1>
+
+                            <ol class="breadcrumb-list">
+                                <li><a href="index.html">Homepage</a></li>
+                                <li><span>About Us</span></li>
+                            </ol>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- end Page title -->
+
+            <div class="content-wrapper pt-0 pb-0">
+
+                <div class="section pt-60">
+
+                    <div class="container">
+
+                        <p class="font15 mb-30">Among going manor who did. Do ye is celebrated it sympathize considered. May ecstatic did surprise elegance the ignorant age. Own her miss cold last. It so numerous if he outlived disposal. How but sons mrs lady when. Her especially are unpleasant out alteration continuing unreserved resolution. Hence hopes noisy may china fully and. Am it regard stairs branch thirty length afford. Tolerably earnestly middleton extremely distrusts she boy now not. Add and offered prepare how cordial two promise. Greatly who affixed suppose but enquire compact prepare all put. Added forth chief trees but rooms think may.</p>
+
+                        <div class="about-us-grid-block GridLex-gap-20-wrappper">
+
+                            <div class="GridLex-grid-noGutter-equalHeight gap-20">
+
+                                <div class="GridLex-col-6_xs-12">
+                                    <div class="about-us-grid-block-item mb-20">
+                                        <h4 class="heading mt-0 text-white">Mission</h4>
+                                        <p>Style too own civil out along. Perfectly offending attempted add arranging age gentleman concluded. Get who uncommonly our expression ten increasing considered occasional travelling.</p>
+                                    </div>
+                                </div>
+
+                                <div class="GridLex-col-3_xs-12">
+                                    <div class="image-bg mb-20" style="background-image:url('/Content/images/about-us/about-us-image-bg-01.jpg');"></div>
+                                </div>
+
+                                <div class="GridLex-col-3_xs-12">
+                                    <div class="image-bg mb-20" style="background-image:url('/Content/images/about-us/about-us-image-bg-02.jpg');"></div>
+                                </div>
+
+                            </div>
+
+                            <div class="GridLex-grid-noGutter-equalHeight gap-20">
+
+                                <div class="GridLex-col-3_xs-12">
+                                    <div class="image-bg mb-20" style="background-image:url('/Content/images/about-us/about-us-image-bg-03.jpg');"></div>
+                                </div>
+
+                                <div class="GridLex-col-6_xs-12">
+                                    <div class="about-us-grid-block-item mb-20">
+                                        <h4 class="heading mt-0 text-white">Vission</h4>
+                                        <p>Style too own civil out along. Perfectly offending attempted add arranging age gentleman concluded. Get who uncommonly our expression ten increasing considered occasional travelling.</p>
+                                    </div>
+                                </div>
+
+                                <div class="GridLex-col-3_xs-12 mb-20">
+                                    <div class="image-bg" style="background-image:url('/Content/images/about-us/about-us-image-bg-04.jpg');"></div>
+                                </div>
+
+                            </div>
+
+                            <div class="GridLex-grid-noGutter-equalHeight gap-20">
+
+                                <div class="GridLex-col-3_xs-12 mb-20">
+                                    <div class="image-bg" style="background-image:url('/Content/images/about-us/about-us-image-bg-05.jpg');"></div>
+                                </div>
+
+                                <div class="GridLex-col-3_xs-12 mb-20">
+                                    <div class="image-bg" style="background-image:url('/Content/images/about-us/about-us-image-bg-06.jpg');"></div>
+                                </div>
+
+                                <div class="GridLex-col-6_xs-12">
+                                    <div class="about-us-grid-block-item mb-20">
+                                        <h4 class="heading mt-0 text-white">Our Goal</h4>
+                                        <p>Style too own civil out along. Perfectly offending attempted add arranging age gentleman concluded. Get who uncommonly our expression ten increasing considered occasional travelling.</p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <h4>Style too own civil out along</h4>
+                        <p>Is branched in my up strictly remember. Songs but chief has ham widow downs. Genius or so up vanity cannot. Large do tried going about water defer by. Silent son man she wished mother. Distrusts allowance do knowledge eagerness assurance additions to.</p>
+
+                        <h4>May ecstatic did surprise elegance the ignorant age</h4>
+                        <p>Among going manor who did. Do ye is celebrated it sympathize considered. May ecstatic did surprise elegance the ignorant age. Own her miss cold last. It so numerous if he outlived disposal. How but sons mrs lady when. Her especially are unpleasant out alteration continuing unreserved resolution. Hence hopes noisy may china fully and. Am it regard stairs branch thirty length afford.</p>
+
+                    </div>
+
+                </div>
+
+                <div class="bg-light section">
+
+                    <div class="container">
+
+                        <div class="row">
+
+                            <div class="col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+
+                                <div class="section-title">
+
+                                    <h3>Our Team</h3>
+                                    <p>Meet with our people behind the move.</p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="team-wrapper">
+
+                            <div class="row">
+
+                                <div class="col-xss-12 col-xs-6 col-sm-3 mv-15">
+
+                                    <div class="team-item">
+
+                                        <div class="image">
+                                            <img src="~/Content/images/team/01.jpg" class="img-circle" />
+                                        </div>
+
+                                        <div class="content">
+
+                                            <h5 class="uppercase">ROBERT SMITH</h5>
+                                            <p>Director Manager</p>
+                                            <ul class="social">
+                                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                            </ul>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="col-xss-12 col-xs-6 col-sm-3 mv-15">
+
+                                    <div class="team-item">
+
+                                        <div class="image">
+                                            <img src="~/Content/images/team/02.jpg" class="img-circle"/>
+                                        </div>
+
+                                        <div class="content">
+
+                                            <h5 class="uppercase">ROBERT SMITH</h5>
+                                            <p>Director Manager</p>
+                                            <ul class="social">
+                                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                            </ul>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="col-xss-12 col-xs-6 col-sm-3 mv-15">
+
+                                    <div class="team-item">
+
+                                        <div class="image">
+                                            <img src="~/Content/images/team/03.jpg" class="img-circle"/>
+                                        </div>
+
+                                        <div class="content">
+
+                                            <h5 class="uppercase">ROBERT SMITH</h5>
+                                            <p>Director Manager</p>
+                                            <ul class="social">
+                                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                            </ul>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="col-xss-12 col-xs-6 col-sm-3 mv-15">
+
+                                    <div class="team-item">
+
+                                        <div class="image">
+                                            <img src="~/Content/images/team/04.jpg" class="img-circle"/>
+                                        </div>
+
+                                        <div class="content">
+
+                                            <h5 class="uppercase">ROBERT SMITH</h5>
+                                            <p>Director Manager</p>
+                                            <ul class="social">
+                                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                            </ul>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="section partner-wrapper bg-primary">
+
+                    <div class="container">
+
+                        <div class="row">
+
+                            <div class="col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+
+                                <div class="section-title">
+
+                                    <h4>As seen on</h4>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="partner-image-item">
+                            <img src="~/Content/images/partner/01.png" alt="partner" />
+                            <img src="~/Content/images/partner/02.png" alt="partner" />
+                            <img src="~/Content/images/partner/03.png" alt="partner" />
+                            <img src="~/Content/images/partner/04.png" alt="partner" />
+                            <img src="~/Content/images/partner/05.png" alt="partner" />
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+        <!-- end Main Wrapper -->
+    </div>  <!-- end Container Wrapper -->
+    <!-- start Back To Top -->
+    <div id="back-to-top">
+        <a href="#"><i class="fa fa-angle-up"></i></a>
+    </div>
+    <!-- end Back To Top -->
+    <!-- JS -->
+</body>
+</html>

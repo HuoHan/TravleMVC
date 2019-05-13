@@ -1,0 +1,379 @@
+﻿<!doctype html>
+<html lang="en">
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tour Packer</title>
+</head>
+<body class="">
+    <!-- BEGIN # MODAL LOGIN -->
+    <div class="modal fade modal-login modal-border-transparent" id="loginModal" role="dialog" aria-hidden="true" style="display:none">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <button type="button" class="btn btn-close close" data-dismiss="modal" aria-label="Close">
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                </button>
+                <div class="clear"></div>
+                <!-- Begin # DIV Form -->
+                <div id="modal-login-form-wrapper">
+                    <!-- Begin # Login Form -->
+                    <form id="login-form">
+                        <div class="modal-body pb-5">
+                            <h4 class="text-center heading mt-10 mb-20">Sign-in</h4>
+                            <button class="btn btn-facebook btn-block">Sign-in with Facebook</button>
+                            <div class="modal-seperator">
+                                <span>or</span>
+                            </div>
+                            <div class="form-group">
+                                <input id="login_username" class="form-control" placeholder="username" type="text">
+                            </div>
+                            <div class="form-group">
+                                <input id="login_password" class="form-control" placeholder="password" type="password">
+                            </div>
+                            <div class="form-group">
+                                <div class="row gap-5">
+                                    <div class="col-xs-6 col-sm-6 col-md-6">
+                                        <div class="checkbox-block fa-checkbox">
+                                            <input id="remember_me_checkbox" name="remember_me_checkbox" class="checkbox" value="First Choice" type="checkbox">
+                                            <label class="" for="remember_me_checkbox">remember</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-6 col-md-6 text-right">
+                                        <button id="login_lost_btn" type="button" class="btn btn-link">forgot pass?</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="row gap-10">
+                                <div class="col-xs-6 col-sm-6 mb-10">
+                                    <button type="submit" class="btn btn-primary btn-block">Sign-in</button>
+                                </div>
+                                <div class="col-xs-6 col-sm-6 mb-10">
+                                    <button type="submit" class="btn btn-primary btn-block btn-inverse" data-dismiss="modal" aria-label="Close">Cancel</button>
+                                </div>
+                            </div>
+                            <div class="text-left">
+                                No account?
+                                <button id="login_register_btn" type="button" class="btn btn-link">Register</button>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- End # Login Form -->
+                    <!-- Begin | Lost Password Form -->
+                    <form id="lost-form" style="display:none;">
+                        <div class="modal-body pb-5">
+                            <h3 class="text-center heading mt-10 mb-20">Forgot password</h3>
+                            <div class="form-group mb-10">
+                                <input id="lost_email" class="form-control" type="text" placeholder="Enter Your Email">
+                            </div>
+                            <div class="text-center">
+                                <button id="lost_login_btn" type="button" class="btn btn-link">Sign-in</button> or
+                                <button id="lost_register_btn" type="button" class="btn btn-link">Register</button>
+                            </div>
+                        </div>
+                        <div class="modal-footer mt-10">
+                            <div class="row gap-10">
+                                <div class="col-xs-6 col-sm-6">
+                                    <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                                </div>
+                                <div class="col-xs-6 col-sm-6">
+                                    <button type="submit" class="btn btn-primary btn-inverse btn-block" data-dismiss="modal" aria-label="Close">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- End | Lost Password Form -->
+                    <!-- Begin | Register Form -->
+                    <form id="register-form" style="display:none;">
+                        <div class="modal-body pb-5">
+                            <h3 class="text-center heading mt-10 mb-20">Register</h3>
+                            <button class="btn btn-facebook btn-block">Register with Facebook</button>
+                            <div class="modal-seperator">
+                                <span>or</span>
+                            </div>
+                            <div class="form-group">
+                                <input id="register_username" class="form-control" type="text" placeholder="Username">
+                            </div>
+                            <div class="form-group">
+                                <input id="register_email" class="form-control" type="email" placeholder="Email">
+                            </div>
+                            <div class="form-group">
+                                <input id="register_password" class="form-control" type="password" placeholder="Password">
+                            </div>
+                            <div class="form-group">
+                                <input id="register_password_confirm" class="form-control" type="password" placeholder="Confirm Password">
+                            </div>
+                        </div>
+                        <div class="modal-footer mt-10">
+                            <div class="row gap-10">
+                                <div class="col-xs-6 col-sm-6 mb-10">
+                                    <button type="submit" class="btn btn-primary btn-block">Register</button>
+                                </div>
+                                <div class="col-xs-6 col-sm-6 mb-10">
+                                    <button type="submit" class="btn btn-primary btn-inverse btn-block" data-dismiss="modal" aria-label="Close">Cancel</button>
+                                </div>
+                            </div>
+                            <div class="text-left">
+                                Already have account? <button id="register_login_btn" type="button" class="btn btn-link">Sign-in</button>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- End | Register Form -->
+                </div>
+                <!-- End # DIV Form -->
+            </div>
+        </div>
+    </div>
+    <!-- END # MODAL LOGIN -->
+    <!-- start Container Wrapper -->
+    <div class="container-wrapper">
+        <div class="clear"></div>
+        <!-- start Main Wrapper -->
+        <div class="main-wrapper">
+            <!-- start end Page title -->
+            <div class="page-title" style="background-image:url('/Content/images/hero-header/breadcrumb.jpg');">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3">
+                            <h1 class="hero-title">Result list</h1>
+                            <ol class="breadcrumb-list">
+                                <li><a href="index.html">Homepage</a></li>
+                                <li><a href="#">Desinations</a></li>
+                                <li><a href="#">City</a></li>
+                                <li><span>Result list</span></li>
+                            </ol>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- end Page title -->
+            <div class="content-wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-4 col-md-3">
+                            <aside class="sidebar with-filter">
+                                <div class="sidebar-search-wrapper bg-light-2">
+                                    <div class="sidebar-search-header">
+                                        <h4>Search Again</h4>
+                                    </div>
+                                    <div class="sidebar-search-content">
+                                        <div class="form-group">
+
+                                            <select name="destination" class="select2-multi form-control" data-placeholder="Choose a Destination" multiple>
+                                                <option value="">Choose a Destination</option>
+                                                <option value="0">Any Destination</option>
+                                                <option value="Albania">Albania</option>
+                                                <option value="Austria" selected>Austria</option>
+                                                <option value="Belgium">Belgium</option>
+                                                <option value="Bosnia">Bosnia</option>
+                                                <option value="Croatia">Croatia</option>
+                                                <option value="Czech Republic">Czech Republic</option>
+                                                <option value="Denmark">Denmark</option>
+                                                <option value="Egypt">Egypt</option>
+                                                <option value="England">England</option>
+                                                <option value="Estonia">Estonia</option>
+                                                <option value="Finland">Finland</option>
+                                                <option value="France" selected>France</option>
+                                                <option value="Germany" selected>Germany</option>
+                                                <option value="Greece">Greece</option>
+                                                <option value="Herzegovina">Herzegovina</option>
+                                                <option value="Hungary">Hungary</option>
+                                                <option value="Ireland">Ireland</option>
+                                                <option value="Italy">Italy</option>
+                                                <option value="Latvia">Latvia</option>
+                                                <option value="Liechtenstein">Liechtenstein</option>
+                                                <option value="Lithuania">Lithuania</option>
+                                                <option value="Luxembourg">Luxembourg</option>
+                                                <option value="Monaco">Monaco</option>
+                                                <option value="Montenegro">Montenegro</option>
+                                                <option value="Netherlands">Netherlands</option>
+                                                <option value="Northern Ireland">Northern Ireland</option>
+                                                <option value="Poland">Poland</option>
+                                                <option value="Portugal">Portugal</option>
+                                                <option value="Russia">Russia</option>
+                                                <option value="Scotland">Scotland</option>
+                                                <option value="Serbia">Serbia</option>
+                                                <option value="Slovakia">Slovakia</option>
+                                                <option value="Slovenia">Slovenia</option>
+                                                <option value="Spain">Spain</option>
+                                                <option value="Sweden">Sweden</option>
+                                                <option value="Switzerland">Switzerland</option>
+                                                <option value="Turkey">Turkey</option>
+                                                <option value="Vatican City">Vatican City</option>
+                                                <option value="Wales">Wales</option>
+                                            </select>
+
+                                        </div>
+
+                                        <div class="form-group">
+
+                                            <select name="month" class="select2-multi form-control" data-placeholder="Choose a Departure Month" multiple>
+                                                <option value="">Choose a Departure Month</option>
+                                                <option value="0">Any Departure Month</option>
+                                                <option value="1">January</option>
+                                                <option value="2">February</option>
+                                                <option value="3">March</option>
+                                                <option value="4" selected>April</option>
+                                                <option value="5">May</option>
+                                                <option value="6">June</option>
+                                                <option value="7">July</option>
+                                                <option value="8">August</option>
+                                                <option value="9">September</option>
+                                                <option value="10">October</option>
+                                                <option value="11">November</option>
+                                                <option value="12">December</option>
+                                            </select>
+
+                                        </div>
+
+                                        <div class="form-group">
+
+                                            <select name="year" class="select2-multi form-control" data-placeholder="Choose a Departure Year" multiple>
+                                                <option value="">Choose a Departure Year</option>
+                                                <option value="0">Any Departure Year</option>
+                                                <option value="2016" selected>2016</option>
+                                                <option value="2017">2017</option>
+                                            </select>
+
+                                        </div>
+
+                                        <a href="#" class="btn btn-primary btn-block">Search</a>
+
+                                    </div>
+                                </div>
+                            </aside>
+                        </div>
+                        <div class="col-sm-8 col-md-9">
+                            <div class="sorting-wrappper">
+                                <div class="sorting-header">
+                                    <h3 class="sorting-title uppercase">3 Countries: Germany, France, Austria</h3>
+                                    <p class="sorting-lead">587 results found</p>
+                                </div>
+                                <div class="sorting-content">
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-8">
+                                            <div class="sort-by-wrapper">
+                                                <label class="sorting-label">Sort by: </label>
+                                                <div class="sorting-middle-holder">
+                                                    <ul class="sort-by">
+                                                        <li><a href="#">价格</a></li>
+                                                        <li><a href="#">地点</a></li>
+                                                        <li><a href="#">用户浏览量</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 col-md-4">
+                                            <div class="sort-by-wrapper mt pull-right pull-left-sm mt-10-sm">
+                                                <label class="sorting-label">View as: </label>
+                                                <div class="sorting-middle-holder">
+                                                    <a href="result-list.html" class="btn btn-sorting active"><i class="fa fa-th-list"></i></a>
+                                                    <a href="result-grid.html" class="btn btn-sorting"><i class="fa fa-th-large"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="package-list-item-wrapper on-page-result-page">
+                                <div class="package-list-item clearfix">
+                                    <div class="image">
+                                        <img src="~/Content/images/tour-package/01.jpg" alt="Tour Package" />
+                                        <div class="absolute-in-image">
+                                            <div class="duration"><span>4天3夜</span></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="content">
+                                        <h5>Paris in Love <button class="btn"><i class="fa fa-heart-o"></i></button></h5>
+                                        <div class="row gap-10">
+                                            <div class="col-sm-12 col-md-9">
+
+                                                <p class="line18">Letter wooded direct two men indeed income sister. Impression up admiration partiality is...</p>
+
+                                                <ul class="list-info">
+                                                    <li><span class="icon"><i class="fa fa-map-marker"></i></span> <span class="font600">Countries: (1)</span> France</li>
+                                                    <li><span class="icon"><i class="fa fa-flag"></i></span> <span class="font600">Starting Point:</span> Paris</li>
+                                                    <li><span class="icon"><i class="fa fa-flag"></i></span> <span class="font600">Ending Point:</span> Paris</li>
+                                                </ul>
+
+                                            </div>
+                                            <div class="col-sm-12 col-md-3 text-right text-left-sm">
+
+                                                <div class="rating-wrapper">
+                                                    <div class="raty-wrapper">
+                                                    </div>
+                                                </div>
+
+                                                <div class="price">$1422</div>
+
+                                                <a href="detail-page.html" class="btn btn-primary btn-sm">view</a>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            @*分页*@
+                            <div class="pager-wrappper mt-30 clearfix">
+
+                                <div class="pager-innner">
+
+                                    <div class="flex-row flex-align-middle">
+
+                                        <div class="flex-column flex-sm-12">
+                                        </div>
+
+                                        <div class="flex-column flex-sm-12">
+                                            <nav class="pager-right">
+                                                <ul class="pagination">
+                                                    <li>
+                                                        <a href="#" aria-label="Previous">
+                                                            <span aria-hidden="true">&laquo;</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="active"><a href="#">1</a></li>
+                                                    <li><a href="#">2</a></li>
+                                                    <li><a href="#">3</a></li>
+                                                    <li><span>...</span></li>
+                                                    <li><a href="#">11</a></li>
+                                                    <li><a href="#">12</a></li>
+                                                    <li><a href="#">13</a></li>
+                                                    <li>
+                                                        <a href="#" aria-label="Next">
+                                                            <span aria-hidden="true">&raquo;</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </nav>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end Main Wrapper -->
+    </div>  <!-- end Container Wrapper -->
+    <!-- start Back To Top -->
+    <div id="back-to-top">
+        <a href="#"><i class="fa fa-angle-up"></i></a>
+    </div>
+</body>
+</html>

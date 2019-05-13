@@ -1,0 +1,305 @@
+﻿<!doctype html>
+@{
+    ViewBag.Title = "Confirmation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Tour Packer</title>
+</head>
+
+<body class="">
+
+    <!-- BEGIN # MODAL LOGIN -->
+    <div class="modal fade modal-login modal-border-transparent" id="loginModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <button type="button" class="btn btn-close close" data-dismiss="modal" aria-label="Close">
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                </button>
+
+                <div class="clear"></div>
+
+                <!-- Begin # DIV Form -->
+                <div id="modal-login-form-wrapper">
+
+                    <!-- Begin # Login Form -->
+                    <form id="login-form">
+
+                        <div class="modal-body pb-5">
+
+                            <h4 class="text-center heading mt-10 mb-20">Sign-in</h4>
+
+                            <button class="btn btn-facebook btn-block">Sign-in with Facebook</button>
+
+                            <div class="modal-seperator">
+                                <span>or</span>
+                            </div>
+
+                            <div class="form-group">
+                                <input id="login_username" class="form-control" placeholder="username" type="text">
+                            </div>
+                            <div class="form-group">
+                                <input id="login_password" class="form-control" placeholder="password" type="password">
+                            </div>
+
+                            <div class="form-group">
+                                <div class="row gap-5">
+                                    <div class="col-xs-6 col-sm-6 col-md-6">
+                                        <div class="checkbox-block fa-checkbox">
+                                            <input id="remember_me_checkbox" name="remember_me_checkbox" class="checkbox" value="First Choice" type="checkbox">
+                                            <label class="" for="remember_me_checkbox">remember</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-6 col-md-6 text-right">
+                                        <button id="login_lost_btn" type="button" class="btn btn-link">forgot pass?</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="modal-footer">
+
+                            <div class="row gap-10">
+                                <div class="col-xs-6 col-sm-6 mb-10">
+                                    <button type="submit" class="btn btn-primary btn-block">Sign-in</button>
+                                </div>
+                                <div class="col-xs-6 col-sm-6 mb-10">
+                                    <button type="submit" class="btn btn-primary btn-block btn-inverse" data-dismiss="modal" aria-label="Close">Cancel</button>
+                                </div>
+                            </div>
+                            <div class="text-left">
+                                No account?
+                                <button id="login_register_btn" type="button" class="btn btn-link">Register</button>
+                            </div>
+
+                        </div>
+                    </form>
+                    <!-- End # Login Form -->
+                    <!-- Begin | Lost Password Form -->
+                    <form id="lost-form" style="display:none;">
+                        <div class="modal-body pb-5">
+
+                            <h3 class="text-center heading mt-10 mb-20">Forgot password</h3>
+                            <div class="form-group mb-10">
+                                <input id="lost_email" class="form-control" type="text" placeholder="Enter Your Email">
+                            </div>
+
+                            <div class="text-center">
+                                <button id="lost_login_btn" type="button" class="btn btn-link">Sign-in</button> or
+                                <button id="lost_register_btn" type="button" class="btn btn-link">Register</button>
+                            </div>
+
+                        </div>
+
+                        <div class="modal-footer mt-10">
+
+                            <div class="row gap-10">
+                                <div class="col-xs-6 col-sm-6">
+                                    <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                                </div>
+                                <div class="col-xs-6 col-sm-6">
+                                    <button type="submit" class="btn btn-primary btn-inverse btn-block" data-dismiss="modal" aria-label="Close">Cancel</button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </form>
+                    <!-- End | Lost Password Form -->
+                    <!-- Begin | Register Form -->
+                    <form id="register-form" style="display:none;">
+
+                        <div class="modal-body pb-5">
+
+                            <h3 class="text-center heading mt-10 mb-20">Register</h3>
+
+                            <button class="btn btn-facebook btn-block">Register with Facebook</button>
+
+                            <div class="modal-seperator">
+                                <span>or</span>
+                            </div>
+
+                            <div class="form-group">
+                                <input id="register_username" class="form-control" type="text" placeholder="Username">
+                            </div>
+
+                            <div class="form-group">
+                                <input id="register_email" class="form-control" type="email" placeholder="Email">
+                            </div>
+
+                            <div class="form-group">
+                                <input id="register_password" class="form-control" type="password" placeholder="Password">
+                            </div>
+
+                            <div class="form-group">
+                                <input id="register_password_confirm" class="form-control" type="password" placeholder="Confirm Password">
+                            </div>
+
+                        </div>
+
+                        <div class="modal-footer mt-10">
+
+                            <div class="row gap-10">
+                                <div class="col-xs-6 col-sm-6 mb-10">
+                                    <button type="submit" class="btn btn-primary btn-block">Register</button>
+                                </div>
+                                <div class="col-xs-6 col-sm-6 mb-10">
+                                    <button type="submit" class="btn btn-primary btn-inverse btn-block" data-dismiss="modal" aria-label="Close">Cancel</button>
+                                </div>
+                            </div>
+
+                            <div class="text-left">
+                                Already have account? <button id="register_login_btn" type="button" class="btn btn-link">Sign-in</button>
+                            </div>
+
+                        </div>
+
+                    </form>
+                    <!-- End | Register Form -->
+
+                </div>
+                <!-- End # DIV Form -->
+
+            </div>
+        </div>
+    </div>
+    <!-- END # MODAL LOGIN -->
+    <!-- start Container Wrapper -->
+    <div class="container-wrapper">
+        <div class="clear"></div>
+        <!-- start Main Wrapper -->
+        <div class="main-wrapper">
+
+            <div class="breadcrumb-wrapper bg-light-2">
+
+                <div class="container">
+
+                    <ol class="breadcrumb-list booking-step">
+                        <li><a href="">搜索</a></li>
+                        <li><a href="#">结果</a></li>
+                        <li><a href="#">详情</a></li>
+                        <li><a href="#">付款</a></li>
+                        <li><span>确认</span></li>
+                    </ol>
+
+                </div>
+
+            </div>
+
+            <div class="content-wrapper">
+
+                <div class="container">
+
+                    <div class="row">
+
+                        <div class="col-sm-8 col-md-9">
+
+                            <div class="confirmation-wrapper">
+
+                                <div class="payment-success">
+
+                                    <div class="icon">
+                                        <i class="pe-7s-check text-success"></i>
+                                    </div>
+
+                                    <div class="content">
+
+                                        <h2 class="heading uppercase mt-0 text-success">谢谢，您的预订已经完成！</h2>
+                                        <p>您的确认号码是<span class="text-primary font700">9977234</span></p>
+                                    </div>
+                                </div>
+                                <div class="confirmation-content">
+                                    <div class="section-title text-left">
+                                        <h4>预订信息</h4>
+                                    </div>
+                                    <ul class="book-sum-list">
+                                        <li><span class="font600">预订号码: </span>9977234</li>
+                                        <li><span class="font600">旅行者姓名: </span>Anthony Marcopolo</li>
+                                        <li><span class="font600">套餐名称: </span>Croatia Sailing &amp; Cruising (4 天 3 夜)</li>
+                                        <li><span class="font600">开始: </span> March 26, 2016 from Dubrovnik</li>
+                                        <li><span class="font600">结束: </span>March 29, 2016 in Hvar</li>
+                                        <li><span class="font600">包括: </span>指南,膳食,运输</li>
+                                    </ul>
+                                </div>
+                                <div class="confirmation-content">
+                                    <div class="section-title text-left">
+                                        <h4>付款</h4>
+                                    </div>
+                                    <p>付款详情</p>
+                                    <p></p>
+                                </div>
+                                <div class="confirmation-content">
+                                    <div class="section-title text-left">
+                                        <h4>附加信息</h4>
+                                    </div>
+                                    <p></p>
+                                </div>
+                                <button class="btn btn-primary"><i class="fa fa-print"></i>打印</button>
+                                <button class="btn btn-primary btn-inverse"><i class="fa fa-envelope-o"></i> 邮寄</button>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-md-3 mt-50-xs">
+                            <aside class="sidebar with-filter">
+                                <div class="sidebar-inner">
+                                    <div class="sidebar-module">
+                                        <h4 class="heading mt-0">需要预订帮助？</h4>
+                                        <div class="sidebar-module-inner">
+                                            <p class="mb-10">如何去做的一些解释</p>
+                                            <ul class="help-list">
+                                                <li><span class="font600">Hotline</span>:17521546355</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="sidebar-module">
+                                        <h4 class="heading mt-0">为什么要和我们预订？</h4>
+                                        <div class="sidebar-module-inner">
+                                            <ul class="featured-list-sm">
+                                                <li>
+                                                    <span class="icon"><i class="fa fa-thumbs-up"></i></span>
+                                                    <h6 class="heading mt-0">没有预订费用</h6>
+                                                    我们向您预订酒店房间不收取额外费用
+                                                </li>
+                                                <li>
+                                                    <span class="icon"><i class="fa fa-credit-card"></i></span>
+                                                    <h6 class="heading mt-0">没有取消看见</h6>
+                                                    如果计划变更，我们不会向您收取取消或修改费用
+                                                </li>
+                                                <li>
+                                                    <span class="icon"><i class="fa fa-inbox"></i></span>
+                                                    <h6 class="heading mt-0">即时确认</h6>
+                                                    即时预订确认无论是在线预订还是通过电话预订
+                                                </li>
+                                                <li>
+                                                    <span class="icon"><i class="fa fa-calendar"></i></span>
+                                                    <h6 class="heading mt-0">灵活预订</h6>
+                                                    您可以提前一年预订或直至您入住的那一刻预订
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </aside>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- end Main Wrapper -->
+    </div>  <!-- end Container Wrapper -->
+    <!-- start Back To Top -->
+    <div id="back-to-top">
+        <a href="#"><i class="fa fa-angle-up"></i></a>
+    </div>
+    <!-- end Back To Top -->
+    <!-- JS -->
+</body>
+</html>
