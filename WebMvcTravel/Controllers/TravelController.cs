@@ -83,5 +83,12 @@ namespace WebMvcTravel.Controllers
         {
             return View();
         }
+        //得到所有的问题和回答
+        public JsonResult GetQue()
+        {
+            string res = HttpClientHelper.Sender("get", "api/QuesApi", null);
+
+            return Json(res, JsonRequestBehavior.AllowGet);
+        }
     }
 }
