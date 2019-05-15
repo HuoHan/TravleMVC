@@ -78,7 +78,7 @@ namespace WebMvcTravel.Controllers
             return View(list1);            
         }
         /// <summary>
-        /// 博客查看更多详情
+        /// 博客查看更多详情1
         /// </summary>
         /// <returns></returns>
         public ActionResult Blog_Single(int id=0)
