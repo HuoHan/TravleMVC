@@ -8,11 +8,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Tour Packer</title>
-
 </head>
 <body>
     <div id="introLoader" class="introLoading"></div>
-
     <!-- BEGIN # MODAL LOGIN -->
     <div class="modal fade modal-login modal-border-transparent" id="loginModal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog">
@@ -175,130 +173,50 @@
             <!-- start hero-header with windows height -->
             <div class="hero" style="background-image:url('/Content/images/hero-header/01.jpg');">
                 <div class="container">
-
                     <div class="row">
-
                         <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
-
                             <h1 class="hero-title">Tour with Tour Packer</h1>
                             <p class="lead">Visit Europe, America, Asia, Africa or beyond!</p>
                         </div>
-
                     </div>
-
                     <div class="main-search-wrapper full-width">
-
                         <div class="inner">
-
                             <div class="column-item">
-
                                 <div class="form-group">
-
+                                    @*下拉选择目的地(国家)*@
                                     <select name="destination" class="select2-multi form-control" data-placeholder="Choose a Destination" multiple>
                                         <option value="">Choose a Destination</option>
-                                        <option value="0">Any Destination</option>
-                                        <option value="Albania">Albania</option>
-                                        <option value="Austria">Austria</option>
-                                        <option value="Belgium">Belgium</option>
-                                        <option value="Bosnia">Bosnia</option>
-                                        <option value="Croatia">Croatia</option>
-                                        <option value="Czech Republic">Czech Republic</option>
-                                        <option value="Denmark">Denmark</option>
-                                        <option value="Egypt">Egypt</option>
-                                        <option value="England">England</option>
-                                        <option value="Estonia">Estonia</option>
-                                        <option value="Finland">Finland</option>
-                                        <option value="France">France</option>
-                                        <option value="Germany">Germany</option>
-                                        <option value="Greece">Greece</option>
-                                        <option value="Herzegovina">Herzegovina</option>
-                                        <option value="Hungary">Hungary</option>
-                                        <option value="Ireland">Ireland</option>
-                                        <option value="Italy">Italy</option>
-                                        <option value="Latvia">Latvia</option>
-                                        <option value="Liechtenstein">Liechtenstein</option>
-                                        <option value="Lithuania">Lithuania</option>
-                                        <option value="Luxembourg">Luxembourg</option>
-                                        <option value="Monaco">Monaco</option>
-                                        <option value="Montenegro">Montenegro</option>
-                                        <option value="Netherlands">Netherlands</option>
-                                        <option value="Northern Ireland">Northern Ireland</option>
-                                        <option value="Poland">Poland</option>
-                                        <option value="Portugal">Portugal</option>
-                                        <option value="Russia">Russia</option>
-                                        <option value="Scotland">Scotland</option>
-                                        <option value="Serbia">Serbia</option>
-                                        <option value="Slovakia">Slovakia</option>
-                                        <option value="Slovenia">Slovenia</option>
-                                        <option value="Spain">Spain</option>
-                                        <option value="Sweden">Sweden</option>
-                                        <option value="Switzerland">Switzerland</option>
-                                        <option value="Turkey">Turkey</option>
-                                        <option value="Vatican City">Vatican City</option>
-                                        <option value="Wales">Wales</option>
                                     </select>
                                 </div>
-
                             </div>
-
                             <div class="column-item">
-
                                 <div class="form-group">
-
+                                    @*下拉选择城市*@
+                                    <select name="City" class="select2-multi form-control" data-placeholder="Choose a City" multiple>
+                                        <option value="">Choose a City</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="column-item">
+                                <div class="form-group">
+                                    @*下拉选择月份*@
                                     <select name="month" class="select2-multi form-control" data-placeholder="Choose a Departure Month" multiple>
                                         <option value="">Choose a Departure Month</option>
-                                        <option value="0">Any Departure Month</option>
-                                        <option value="1">January</option>
-                                        <option value="2">February</option>
-                                        <option value="3">March</option>
-                                        <option value="4">April</option>
-                                        <option value="5">May</option>
-                                        <option value="6">June</option>
-                                        <option value="7">July</option>
-                                        <option value="8">August</option>
-                                        <option value="9">September</option>
-                                        <option value="10">October</option>
-                                        <option value="11">November</option>
-                                        <option value="12">December</option>
+
                                     </select>
-
                                 </div>
-
                             </div>
-
-                            <div class="column-item">
-
-                                <div class="form-group">
-                                    <select name="year" class="select2-multi form-control" data-placeholder="Choose a Departure Year" multiple>
-                                        <option value="">Choose a Departure Year</option>
-                                        <option value="0">Any Departure Year</option>
-                                        <option value="2016">2016</option>
-                                        <option value="2017">2017</option>
-                                    </select>
-
-                                </div>
-
-                            </div>
-
                             <div class="column-item for-btn">
-
                                 <div class="form-group">
-
                                     <a href="#" class="btn btn-primary btn-block">Search</a>
-
                                 </div>
-
                             </div>
-
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
             <!-- end hero-header with windows height -->
-
+            @*小标题*@
             <div class="post-hero bg-light">
 
                 <div class="container">
@@ -334,30 +252,19 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
             <section>
-
                 <div class="container">
-
                     <div class="row">
-
                         <div class="col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-
                             <div class="section-title">
 
                                 <h3>热门目的地</h3>
-
                             </div>
-
                         </div>
-
                     </div>
-
                     <div class="grid destination-grid-wrapper">
 
                         <div class="grid-item" data-colspan="10" data-rowspan="10">
@@ -395,36 +302,21 @@
                                 </div>
                             </a>
                         </div>
-
                     </div>
-
                 </div>
-
             </section>
-
             <section class="bg-light">
-
                 <div class="container">
-
                     <div class="row">
-
                         <div class="col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-
                             <div class="section-title">
-
                                 <h3>特别套餐</h3>
                                 <p>Of distrusts immediate enjoyment curiosity do. Marianne numerous saw thoughts the humoured.</p>
-
                             </div>
-
                         </div>
-
                     </div>
-
                     <div class="GridLex-gap-30-wrappper package-grid-item-wrapper">
-
                         <div class="GridLex-grid-noGutter-equalHeight">
-
                             <div class="GridLex-col-4_sm-6_xs-12 mb-30">
                                 <div class="package-grid-item">
                                     <a href="detail-page.html">
@@ -444,110 +336,66 @@
                                     </a>
                                 </div>
                             </div>
-
                         </div>
-
                     </div>
-
                 </div>
-
             </section>
 
             <section class="overflow-hidden why-us-half-image-wrapper">
-
                 <div class="GridLex-grid-noGutter-equalHeight">
-
                     <div class="GridLex-col-6_sm-12">
-
                         <div class="why-us-half-image-content">
-
                             <div class="section-title text-left">
-
                                 <h3>为什么选择我们</h3>
                                 <p>There are several seasons that you must travel with us</p>
-
                             </div>
-
                             <div class="featured-item">
-
                                 <h4>旅游专家</h4>
-
                                 <div class="content clearfix">
-
                                     <div class="icon">
                                         <i class="pe-7s-users"></i>
                                     </div>
-
                                     <p>Blind would equal while oh mr lain led and fact none. One preferred sportsmen resolving the happiness continued. High at of in loud rich true.</p>
-
                                 </div>
                             </div>
-
                             <div class="featured-item">
-
                                 <h4>优质住宿</h4>
-
                                 <div class="content clearfix">
-
                                     <div class="icon">
                                         <i class="pe-7s-home"></i>
                                     </div>
-
                                     <p>Admiration stimulated cultivated reasonable be projection possession of. Real no near room ye bred sake if some. Is arranging furnished knowledge.</p>
-
                                 </div>
                             </div>
-
-
                             <div class="featured-item">
-
                                 <h4>舒适的运输</h4>
-
                                 <div class="content clearfix">
-
                                     <div class="icon">
                                         <i class="pe-7s-car"></i>
                                     </div>
-
                                     <p>Effect twenty indeed beyond for not had county. The use him without greatly can private. Increasing it unpleasant no of contrasted no continuing.</p>
-
                                 </div>
                             </div>
-
                         </div>
-
                     </div>
-
                     <div class="GridLex-col-6_sm-12 image-bg">
                         <div class="image-bg" style="background-image:url('/Content/images/image-01.jpg');"></div>
                     </div>
-
                 </div>
-
             </section>
 
             <section class="bg-light">
-
                 <div class="container">
-
                     <div class="row">
-
                         <div class="col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-
                             <div class="section-title">
-
                                 <h3>见证</h3>
                                 <p>客户对我们的评价</p>
                             </div>
-
                         </div>
-
                     </div>
-
                     <div class="testimonial-wrapper">
-
                         <div class="row">
-
                             <div class="col-xs-12 col-sm-12 col-md-6">
                                 <div class="testimonial-item clearfix">
                                     <div class="image">
@@ -560,7 +408,6 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="col-xs-12 col-sm-12 col-md-6">
                                 <div class="testimonial-item clearfix">
                                     <div class="image">
@@ -573,25 +420,18 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div>
-
                     </div>
-
                 </div>
-
             </section>
 
 
 
             <div class="overflow-hidden">
-
                 <div class="instagram-wrapper">
                     <div id="instagram" class="instagram"></div>
                 </div>
-
             </div>
-
         </div>
         <!-- end Main Wrapper -->
 
