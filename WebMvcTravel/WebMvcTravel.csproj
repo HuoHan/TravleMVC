@@ -47,12 +47,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="PagedList">
-      <HintPath>C:\Users\甜甜\Desktop\辅助方法\分页\PagedList.dll</HintPath>
-    </Reference>
-    <Reference Include="PagedList.Mvc">
-      <HintPath>C:\Users\甜甜\Desktop\辅助方法\分页\PagedList.Mvc.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -131,20 +125,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="HttpClientHelper.cs" />
-    <Compile Include="Models\Addresses.cs" />
-    <Compile Include="Models\Answer.cs" />
-    <Compile Include="Models\Blogs.cs" />
-    <Compile Include="Models\Comment.cs" />
-    <Compile Include="Models\Indent.cs" />
-    <Compile Include="Models\Monthes.cs" />
-    <Compile Include="Models\Picture.cs" />
-    <Compile Include="Models\Question.cs" />
-    <Compile Include="Models\Reply.cs" />
-    <Compile Include="Models\Routese.cs" />
-    <Compile Include="Models\ScenicArea.cs" />
-    <Compile Include="Models\Tourist.cs" />
-    <Compile Include="Models\UserLogin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -189,14 +169,6 @@
     <Content Include="Content\icons\simple-line-icons\css\simple-line-icons.css" />
     <Content Include="Content\icons\simple-line-icons\fonts\Simple-Line-Icons.svg" />
     <Content Include="Content\icons\themify-icons\themify-icons.css" />
-    <Content Include="Content\images\100p0a0000004fj1bDD52_R_1024_10000_Q90.jpg" />
-    <Content Include="Content\images\100q070000002ncs622F4.jpg" />
-    <Content Include="Content\images\11-1F1111114045I.jpg" />
-    <Content Include="Content\images\195004vz11m1qmfx0tfzet.jpg" />
-    <Content Include="Content\images\4980a2017cd44fbe82d92406a943389d.jpg" />
-    <Content Include="Content\images\851091_20151206165631484400_1.jpg" />
-    <Content Include="Content\images\983a664089184f6b9c5183b1fc2e4573_th.jpg" />
-    <Content Include="Content\images\9bbc284bgw1f2ocemm90gj20sg0kek0e.jpg" />
     <Content Include="Content\images\about-us\about-us-image-bg-01.jpg" />
     <Content Include="Content\images\about-us\about-us-image-bg-02.jpg" />
     <Content Include="Content\images\about-us\about-us-image-bg-03.jpg" />
@@ -214,8 +186,6 @@
     <Content Include="Content\images\blog\blog-01.jpg" />
     <Content Include="Content\images\blog\blog-02.jpg" />
     <Content Include="Content\images\blog\blog-03.jpg" />
-    <Content Include="Content\images\CggYHlZFjAiAWKqLAAcdKG662Zc699.jpg" />
-    <Content Include="Content\images\CghzgVUR9eyAPs13AABTss-Tum4882.jpg" />
     <Content Include="Content\images\contact\berlin.jpg" />
     <Content Include="Content\images\contact\dubai.jpg" />
     <Content Include="Content\images\contact\singapore.jpg" />
@@ -256,7 +226,6 @@
     <Content Include="Content\images\detail-gallery\16-sm.jpg" />
     <Content Include="Content\images\detail-gallery\16.jpg" />
     <Content Include="Content\images\detail\header.jpg" />
-    <Content Include="Content\images\ec51b0336e954fcb87d9c09881c0a4d9.jpg" />
     <Content Include="Content\images\hero-header\01.jpg" />
     <Content Include="Content\images\hero-header\02.jpg" />
     <Content Include="Content\images\hero-header\03.jpg" />
@@ -315,7 +284,6 @@
     <Content Include="Content\images\tour-package\13.jpg" />
     <Content Include="Content\images\tour-package\14.jpg" />
     <Content Include="Content\images\tour-package\15.jpg" />
-    <Content Include="Content\images\wKgBs1hSUKyAFdisAAUXIC1zu8I65.jpeg.jpg" />
     <Content Include="Content\js\customs.js" />
     <Content Include="Content\js\infobox.js" />
     <Content Include="Content\js\instagram.min.js" />
@@ -405,6 +373,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
