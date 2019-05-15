@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Newtonsoft.Json;
+using WebMvcTravel.Models;
+using PagedList;
+using PagedList.Mvc;
 
 namespace WebMvcTravel.Controllers
 {
@@ -58,17 +61,23 @@ namespace WebMvcTravel.Controllers
         /// 博客
         /// </summary>
         /// <returns></returns>
-        public ActionResult Blog()
+        public ActionResult Blog(int pageIndex=1)
         {
-            return View();
+            int pageSize = 2;
+            string result = HttpClientHelper.Sender("get", "api/Blogs", null);
+            List<Blogs> str = JsonConvert.DeserializeObject<List<Blogs>>(result);
+            IPagedList<Blogs> list = str.ToPagedList<Blogs>(pageIndex,pageSize);
+            return View(list);
         }
         /// <summary>
         /// 博客查看更多详情1
         /// </summary>
         /// <returns></returns>
-        public ActionResult Blog_Single()
+        public ActionResult Blog_Single(int id=0)
         {
-            return View();
+            string result = HttpClientHelper.Sender("get", "api/Blogs", null);
+            List<Blogs> str = JsonConvert.DeserializeObject<List<Blogs>>(result);
+            return View(str.Where(m=>m.BlogsId==id).ToList());
         }
         public ActionResult Payment()
         {
