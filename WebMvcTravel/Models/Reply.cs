@@ -9,8 +9,7 @@ namespace WebMvcTravel.Models
     public class Reply
     {
         public int ReplyId { get; set; }
-        public string TrueName { get; set; }
-        public string Phoen { get; set; }
-        public string Remark { get; set; }
+        public string ReplayRemark { get; set; }
+        public int Comment_Id { get; set; }
     }
 }

@@ -136,6 +136,7 @@
     <Compile Include="Models\Answer.cs" />
     <Compile Include="Models\Blogs.cs" />
     <Compile Include="Models\Comment.cs" />
+    <Compile Include="Models\Feedback.cs" />
     <Compile Include="Models\Indent.cs" />
     <Compile Include="Models\Monthes.cs" />
     <Compile Include="Models\Picture.cs" />

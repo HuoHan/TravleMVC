@@ -64,7 +64,7 @@ namespace WebMvcTravel.Controllers
         public ActionResult Blog(int pageIndex=1)
         {
             int pageSize = 2;
-            string result = HttpClientHelper.Sender("get", "api/Blogs", null);
+            string result = HttpClientHelper.Sender("get", "api/Blogs?id=0", null);
             List<Blogs> str = JsonConvert.DeserializeObject<List<Blogs>>(result);
             IPagedList<Blogs> list = str.ToPagedList<Blogs>(pageIndex,pageSize);
             return View(list);
@@ -73,11 +73,17 @@ namespace WebMvcTravel.Controllers
         /// 博客查看更多详情1
         /// </summary>
         /// <returns></returns>
-        public ActionResult Blog_Single(int id=0)
+        public ActionResult Blog_Single(int id)
         {
-            string result = HttpClientHelper.Sender("get", "api/Blogs", null);
-            List<Blogs> str = JsonConvert.DeserializeObject<List<Blogs>>(result);
-            return View(str.Where(m=>m.BlogsId==id).ToList());
+            ViewBag.id = id;
+            return View();
+        }
+        //添加评论
+        public int AddComment(Comment com)
+        {
+            string str = JsonConvert.SerializeObject(com);
+            string result = HttpClientHelper.Sender("post", "api/Comment", str);
+            return Convert.ToInt32(result);
         }
         public ActionResult Payment()
         {
