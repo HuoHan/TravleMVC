@@ -228,7 +228,14 @@
                                             </ul>
                                         </li>
                                         <li class="user-action">
-                                            <a data-toggle="modal" href="#loginModal" class="btn">登录/注册</a>
+                                            @if (ViewBag.userName == "")
+                                            {
+                                                <a data-toggle="modal" href="#loginModal" class="btn">注册/登录</a>
+                                            }
+                                            else
+                                            {
+                                                <span style="font-size:20px">@ViewBag.userName</span>
+                                            }
                                         </li>
                                     </ul>
                                 </div>
@@ -279,7 +286,7 @@
     </header>
     @*注册登录*@
     <script>
-        //注册
+               //注册
         $("#regsCheck").click(function () {
             var flag1, flag2, flag3, flag4 = false;
             var phone = $("#register_Phone").val();
@@ -315,7 +322,7 @@
             }
             $.ajax({
                 url: "/Travel/CheckUser",
-                data: { userName: userName, userPwd: userPwd, phone: phone, trueName: trueName },
+                data: {userName: userName, userPwd: userPwd, phone: phone, trueName: trueName },
                 success: function (data) {
                     var d = eval(data);
                     if (d > 0) {
@@ -330,14 +337,14 @@
         //登陆
         $("#uLogin").click(function () {
             var userName = $("#login_username").val();
-            var userPwd = $("#login_userpwd").val();
+            var userPwd = $("#login_password").val();
             $.ajax({
                 url: "/Travel/CheckLogin",
-                data: { 'userName': 'userName', 'userPwd': 'userPwd' },
+                data: { userName: userName, userPwd: userPwd},
                 success: function (data) {
-                    var d = eval(data);
-                    if (d > 0) {
+                    if (data > 0) {
                         alert("登陆成功");
+                        location.href = "/Travel/Faq";
                     }
                     else {
                         alert("登陆失败");
@@ -345,28 +352,28 @@
                 }
             })
         })
-
-        $("#register_username").blur(function () {
+        
+        $("#register_username").blur(function(){
             var userName = $("#register_username").val();
             $.ajax({
                 async: false, // 此处要设置为同步
                 cache: true, // 默认true,设置为 false 将不会从浏览器缓存中加载请求信息。
                 type: "GET", // 默认:GET 请求方式:[POST/GET]
                 url: "/Travel/GetStatu", // 默认当前地址,发送请求的地址
-                data: { userName: userName }, // 发送到服务器的数据
-                error: function (XMLHttpRequest, textStatus, errorThrown) { alert(XMLHttpRequest + "," + textStatus + "," + errorThrown); }, // 请求失败时调用
+                data: { userName: userName}, // 发送到服务器的数据
+                error: function(XMLHttpRequest, textStatus, errorThrown) { alert(XMLHttpRequest + "," + textStatus + "," + errorThrown); }, // 请求失败时调用
                 timeout: 6000, // 设置请求超时时间
                 success: function (msg) {
-                    var me = eval('' + msg + '');
-                    if (me == "existed") {
+                   var me= eval(''+msg+'');
+                    if (me == "existed"){
                         //在页面上显示此用户名已经存在
                         alert("该用户已存在");
                     }
-                    else {
+                    else{
                         alert("该用户可以使用");
                     }
                 },
-                complete: function () {
+                complete: function() {
                 }
             });
         });

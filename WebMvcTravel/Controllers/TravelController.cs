@@ -19,23 +19,32 @@ namespace WebMvcTravel.Controllers
         /// <returns></returns>        
         public ActionResult Index()
         {
+            Cookies();
             return View();
         }
         /// <summary>
         /// 结果列表
         /// </summary>
         /// <returns></returns>
-        public ActionResult Result_List()
+        public ActionResult Result_List(string countyId = null, string addressId = null, string monthsId = null, int pageIndex = 1)
         {
-            return View();
+            Cookies();
+            var str = HttpClientHelper.Sender("get", "api/ScenicAreas?countyId=" + countyId + "&addressId=" + addressId + "&monthsId=" + monthsId, null);
+            var list = JsonConvert.DeserializeObject<List<ScenicArea>>(str);
+            IPagedList<ScenicArea> pageList = list.ToPagedList<ScenicArea>(pageIndex, 8);
+            return View(pageList);
         }
         /// <summary>
         /// 结果列表
         /// </summary>
         /// <returns></returns>
-        public ActionResult Result_Grid()
+        public ActionResult Result_Grid(string countyId = null, string addressId = null, string monthsId = null, int pageIndex = 1)
         {
-            return View();
+            Cookies();
+            var str = HttpClientHelper.Sender("get", "api/ScenicAreas?countyId=" + countyId + "&addressId="+ addressId+ "&monthsId="+ monthsId,null);
+            var list = JsonConvert.DeserializeObject<List<ScenicArea>>(str);
+            IPagedList<ScenicArea> pageList = list.ToPagedList<ScenicArea>(pageIndex, 15);
+            return View(pageList);
         }
         /// <summary>
         /// 常见问题页面
@@ -43,6 +52,7 @@ namespace WebMvcTravel.Controllers
         /// <returns></returns>
         public ActionResult Faq()
         {
+            Cookies();
             return View();
         }
         /// <summary>
@@ -51,10 +61,12 @@ namespace WebMvcTravel.Controllers
         /// <returns></returns>
         public ActionResult Static_Page()
         {
+            Cookies();
             return View();
         }
         public ActionResult About()
         {
+            Cookies();
             return View();
         }
         /// <summary>
@@ -63,6 +75,7 @@ namespace WebMvcTravel.Controllers
         /// <returns></returns>
         public ActionResult Blog(int pageIndex=1)
         {
+            Cookies();
             int pageSize = 2;
             string result = HttpClientHelper.Sender("get", "api/Blogs?id=0", null);
             List<Blogs> str = JsonConvert.DeserializeObject<List<Blogs>>(result);
@@ -75,6 +88,7 @@ namespace WebMvcTravel.Controllers
         /// <returns></returns>
         public ActionResult Blog_Single(int id)
         {
+            Cookies();
             ViewBag.id = id;
             return View();
         }
@@ -87,6 +101,7 @@ namespace WebMvcTravel.Controllers
         }
         public ActionResult Payment()
         {
+            Cookies();
             return View();
         }
         /// <summary>
@@ -96,6 +111,7 @@ namespace WebMvcTravel.Controllers
         /// //jj
         public ActionResult Confirmation()
         {
+            Cookies();
             return View();
         }
         //得到所有的问题和回答
@@ -127,7 +143,31 @@ namespace WebMvcTravel.Controllers
         public JsonResult CheckLogin(string userName, string userPwd)
         {
             string res = HttpClientHelper.Sender("get", "api/LoginApi?userName=" + userName + "&userPwd=" + userPwd, null);
-            return Json(res, JsonRequestBehavior.AllowGet);
+            var list = JsonConvert.DeserializeObject<List<UserLogin>>(res);
+            if (list.Count > 0)
+            {
+                HttpCookie cook = new HttpCookie("userName", HttpUtility.UrlEncode(list[0].TrueName, System.Text.Encoding.GetEncoding("UTF-8")));
+                cook.Expires = DateTime.Now.AddMinutes(2);
+                Response.AppendCookie(cook);
+            }
+
+            var result = list.Count > 0 ? "1" : "0";
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+
+        public void Cookies()
+        {
+            HttpCookie cook = Request.Cookies["userName"];
+            if (cook != null)
+            {
+                ViewBag.userName = HttpUtility.UrlDecode(cook.Value, System.Text.Encoding.GetEncoding("UTF-8"));
+
+            }
+            else
+            {
+                ViewBag.userName = "";
+            }
         }
     }
 }
