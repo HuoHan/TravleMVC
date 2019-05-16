@@ -105,5 +105,29 @@ namespace WebMvcTravel.Controllers
 
             return Json(res, JsonRequestBehavior.AllowGet);
         }
+        //通过用户名查询
+        public JsonResult GetStatu(string userName)
+        {
+            string res = HttpClientHelper.Sender("get", "api/LoginApi?userName=" + userName, null);
+            return Json(res, JsonRequestBehavior.AllowGet);
+        }
+        //注册
+        public JsonResult CheckUser(string userName, string userPwd, string phone, string trueName)
+        {
+            UserLogin u = new UserLogin();
+            u.TrueName = trueName;
+            u.UserPwd = userPwd;
+            u.UserName = userName;
+            u.UserPhone = phone;
+            string str = JsonConvert.SerializeObject(u);
+            string res = HttpClientHelper.Sender("post", "api/LoginApi", str);
+            return Json(res, JsonRequestBehavior.AllowGet);
+        }
+        //登陆
+        public JsonResult CheckLogin(string userName, string userPwd)
+        {
+            string res = HttpClientHelper.Sender("get", "api/LoginApi?userName=" + userName + "&userPwd=" + userPwd, null);
+            return Json(res, JsonRequestBehavior.AllowGet);
+        }
     }
 }

@@ -3,6 +3,7 @@
 <head>
     <!-- CSS Plugins -->
     <link href="~/Content/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
     <link href="~/Content/css/animate.css" rel="stylesheet" />
     <link href="~/Content/css/main.css" rel="stylesheet" />
     <link href="~/Content/css/component.css" rel="stylesheet" />
@@ -21,6 +22,159 @@
     <link href="~/Content/css/style.css" rel="stylesheet" />
 </head>
 <body>
+    @*登录注册*@
+    <div class="modal fade modal-login modal-border-transparent" id="loginModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <button type="button" class="btn btn-close close" data-dismiss="modal" aria-label="Close">
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                </button>
+
+                <div class="clear"></div>
+
+                <!-- Begin # DIV Form -->
+                <div id="modal-login-form-wrapper">
+
+                    <!-- Begin # Login Form -->
+                    <form id="login-form">
+
+                        <div class="modal-body pb-5">
+
+                            <h4 class="text-center heading mt-10 mb-20">登入</h4>
+
+                            <button class="btn btn-facebook btn-block">用FACEBOOK登陆</button>
+
+                            <div class="modal-seperator">
+                                <span>或者</span>
+                            </div>
+
+                            <div class="form-group">
+                                <input id="login_username" class="form-control" placeholder="username" type="text">
+                            </div>
+                            <div class="form-group">
+                                <input id="login_password" class="form-control" placeholder="password" type="password">
+                            </div>
+
+                            <div class="form-group">
+                                <div class="row gap-5">
+                                    <div class="col-xs-6 col-sm-6 col-md-6">
+                                        <div class="checkbox-block fa-checkbox">
+                                            <input id="remember_me_checkbox" name="remember_me_checkbox" class="checkbox" value="First Choice" type="checkbox">
+                                            <label class="" for="remember_me_checkbox">记住密码</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-6 col-md-6 text-right">
+                                        <button id="login_lost_btn" type="button" class="btn btn-link">忘记密码?</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="modal-footer">
+
+                            <div class="row gap-10">
+                                <div class="col-xs-6 col-sm-6 mb-10">
+                                    <button type="button" class="btn btn-primary btn-block" id="uLogin">登陆</button>
+                                </div>
+                                <div class="col-xs-6 col-sm-6 mb-10">
+                                    <button type="submit" class="btn btn-primary btn-block btn-inverse" data-dismiss="modal" aria-label="Close">取消</button>
+                                </div>
+                            </div>
+                            <div class="text-left">
+                                没有账号?
+                                <button id="login_register_btn" type="button" class="btn btn-link">注册</button>
+                            </div>
+
+                        </div>
+                    </form>
+                    <!-- End # Login Form -->
+                    <!-- Begin | Lost Password Form -->
+                    <form id="lost-form" style="display:none;">
+                        <div class="modal-body pb-5">
+
+                            <h3 class="text-center heading mt-10 mb-20">忘记密码</h3>
+                            <div class="form-group mb-10">
+                                <input id="lost_email" class="form-control" type="text" placeholder="Enter Your Email">
+                            </div>
+
+                            <div class="text-center">
+                                <button id="lost_login_btn" type="button" class="btn btn-link">登录</button> 或者
+                                <button id="lost_register_btn" type="button" class="btn btn-link">注册</button>
+                            </div>
+
+                        </div>
+
+                        <div class="modal-footer mt-10">
+
+                            <div class="row gap-10">
+                                <div class="col-xs-6 col-sm-6">
+                                    <button type="submit" class="btn btn-primary btn-block">提交</button>
+                                </div>
+                                <div class="col-xs-6 col-sm-6">
+                                    <button type="submit" class="btn btn-primary btn-inverse btn-block" data-dismiss="modal" aria-label="Close">取消</button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </form>
+                    <!-- End | Lost Password Form -->
+                    <!-- Begin | Register Form -->
+                    <form id="register-form" style="display:none;">
+
+                        <div class="modal-body pb-5">
+
+                            <h3 class="text-center heading mt-10 mb-20">注册</h3>
+
+                            <button class="btn btn-facebook btn-block">注册FACEBOOK</button>
+
+                            <div class="modal-seperator">
+                                <span>或者</span>
+                            </div>
+
+                            <div class="form-group">
+                                <input id="register_username" class="form-control" type="text" placeholder="请输入用户名"><span id="checkUserName"></span>
+                            </div>
+                            <div class="form-group">
+                                <input id="register_truename" class="form-control" type="text" placeholder="请输入用户真实姓名">
+                            </div>
+                            <div class="form-group">
+                                <input id="register_Phone" class="form-control" type="email" placeholder="请输入手机号">
+                            </div>
+
+                            <div class="form-group">
+                                <input id="register_password" class="form-control" type="password" placeholder="请输入密码">
+                            </div>
+                        </div>
+
+                        <div class="modal-footer mt-10">
+
+                            <div class="row gap-10">
+                                <div class="col-xs-6 col-sm-6 mb-10">
+                                    <button type="button" class="btn btn-primary btn-block" id="regsCheck">注册</button>
+                                </div>
+                                <div class="col-xs-6 col-sm-6 mb-10">
+                                    <button type="submit" class="btn btn-primary btn-inverse btn-block" data-dismiss="modal" aria-label="Close">取消</button>
+                                </div>
+                            </div>
+
+                            <div class="text-left">
+                                已有账户? <button id="register_login_btn" type="button" class="btn btn-link">登录</button>
+                            </div>
+
+                        </div>
+
+                    </form>
+                    <!-- End | Register Form -->
+
+                </div>
+                <!-- End # DIV Form -->
+
+            </div>
+        </div>
+    </div>
     @*头部*@
     <header id="header">
         <!-- start Navbar (Header) -->
@@ -123,6 +277,100 @@
         </nav>
         <!-- end Navbar (Header) -->
     </header>
+    @*注册登录*@
+    <script>
+        //注册
+        $("#regsCheck").click(function () {
+            var flag1, flag2, flag3, flag4 = false;
+            var phone = $("#register_Phone").val();
+            var regPhone = /^1[34578]\d{9}$/;
+            flag1 = regPhone.test(phone);
+            var userName = $("#register_username").val();
+            var userPwd = $("#register_password").val();
+            var trueName = $("#register_truename").val();
+            if (userName != null || userName != "") {
+                flag2 = true;
+            }
+            if (userPwd != null || userPwd != "") {
+                flag3 = true;
+            }
+            if (trueName != null || trueName != "") {
+                flag4 = true;
+            }
+            if (!flag2) {
+                alert("用户名不能为空");
+                return;
+            }
+            if (!flag1) {
+                alert("手机号格式不正确");
+                return;
+            }
+            if (!flag3) {
+                alert("密码不能为空");
+                return;
+            }
+            if (!flag4) {
+                alert("真是姓名不能为空");
+                return;
+            }
+            $.ajax({
+                url: "/Travel/CheckUser",
+                data: { userName: userName, userPwd: userPwd, phone: phone, trueName: trueName },
+                success: function (data) {
+                    var d = eval(data);
+                    if (d > 0) {
+                        alert("注册成功");
+                    }
+                    else {
+                        alert("注册失败");
+                    }
+                }
+            })
+        })
+        //登陆
+        $("#uLogin").click(function () {
+            var userName = $("#login_username").val();
+            var userPwd = $("#login_userpwd").val();
+            $.ajax({
+                url: "/Travel/CheckLogin",
+                data: { 'userName': 'userName', 'userPwd': 'userPwd' },
+                success: function (data) {
+                    var d = eval(data);
+                    if (d > 0) {
+                        alert("登陆成功");
+                    }
+                    else {
+                        alert("登陆失败");
+                    }
+                }
+            })
+        })
+
+        $("#register_username").blur(function () {
+            var userName = $("#register_username").val();
+            $.ajax({
+                async: false, // 此处要设置为同步
+                cache: true, // 默认true,设置为 false 将不会从浏览器缓存中加载请求信息。
+                type: "GET", // 默认:GET 请求方式:[POST/GET]
+                url: "/Travel/GetStatu", // 默认当前地址,发送请求的地址
+                data: { userName: userName }, // 发送到服务器的数据
+                error: function (XMLHttpRequest, textStatus, errorThrown) { alert(XMLHttpRequest + "," + textStatus + "," + errorThrown); }, // 请求失败时调用
+                timeout: 6000, // 设置请求超时时间
+                success: function (msg) {
+                    var me = eval('' + msg + '');
+                    if (me == "existed") {
+                        //在页面上显示此用户名已经存在
+                        alert("该用户已存在");
+                    }
+                    else {
+                        alert("该用户可以使用");
+                    }
+                },
+                complete: function () {
+                }
+            });
+        });
+    </script>
     <div class="container body-content">
         @RenderBody()
         <hr />
