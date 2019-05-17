@@ -43,7 +43,9 @@ namespace WebMvcTravel.Models
         public int Pid { get; set; }
         public int Month_Id { get; set; }
         public int CountryId { get; set; }
+        public string CountryName{ get; set; }
         public int PlaceId { get; set; }
         public string PlaceName { get; set; }
+
     }
 }
