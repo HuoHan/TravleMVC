@@ -52,6 +52,7 @@ namespace WebMvcTravel.Controllers
         //}      
         /// <summary>
         /// 结果列表
+        /// 
         /// </summary>
         /// <returns></returns>
         public ActionResult Result_List(string countyId = null, string addressId = null, string monthsId = null, int pageIndex = 1)
