@@ -16,7 +16,7 @@ namespace WebMvcTravel.Controllers
         /// <summary>
         /// 主页面
         /// 
-        /// 
+        ///
         /// </summary>
         /// <returns></returns>        
         public ActionResult Index()
@@ -49,7 +49,7 @@ namespace WebMvcTravel.Controllers
         //    string str = HttpClientHelper.Sender("get", "api/ShowAddress?id=" + fid, null);
         //    var ai = JsonConvert.SerializeObject(str);
         //    return ai;
-        //}
+        //}      
         /// <summary>
         /// 结果列表
         /// </summary>
@@ -198,5 +198,6 @@ namespace WebMvcTravel.Controllers
                 ViewBag.userName = "";
             }
         }
+        //465
     }
 }
