@@ -193,8 +193,11 @@
     <Content Include="Content\images\100p0a0000004fj1bDD52_R_1024_10000_Q90.jpg" />
     <Content Include="Content\images\100q070000002ncs622F4.jpg" />
     <Content Include="Content\images\11-1F1111114045I.jpg" />
+    <Content Include="Content\images\123.jpg" />
     <Content Include="Content\images\195004vz11m1qmfx0tfzet.jpg" />
+    <Content Include="Content\images\456.jpg" />
     <Content Include="Content\images\4980a2017cd44fbe82d92406a943389d.jpg" />
+    <Content Include="Content\images\567.jpg" />
     <Content Include="Content\images\66号公路1.jpg" />
     <Content Include="Content\images\66号公路2.jpg" />
     <Content Include="Content\images\66号公路3.jpg" />
@@ -290,6 +293,7 @@
     <Content Include="Content\images\partner\05.png" />
     <Content Include="Content\images\payment-credit-cards.jpg" />
     <Content Include="Content\images\payment-paypal.jpg" />
+    <Content Include="Content\images\QQ图片20190510110118.jpg" />
     <Content Include="Content\images\raty\star-half-sm.png" />
     <Content Include="Content\images\raty\star-half-white.png" />
     <Content Include="Content\images\raty\star-half.png" />
