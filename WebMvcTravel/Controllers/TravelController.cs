@@ -114,6 +114,7 @@ namespace WebMvcTravel.Controllers
         /// 博客查看更多详情1
         /// </summary>
         /// <returns></returns>
+      
         public ActionResult Blog_Single(int id)
         {
             Cookies();
