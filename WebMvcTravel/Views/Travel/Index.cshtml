@@ -4,7 +4,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @using WebMvcTravel.Models
+
 @model List<Addresses>
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,7 +17,7 @@
 </head>
 <body>
     <div id="introLoader" class="introLoading"></div>
-    <!-- BEGIN # MODAL LOGIN -->
+    <!-- BEGIN  MODAL LOGIN -->
     <!-- END # MODAL LOGIN -->
     <!-- start Container Wrapper -->
     <div class="container-wrapper">
@@ -51,7 +53,7 @@
                                         type: "get",
                                         dataType: "Json",
                                         success: function (data) {
-                                            $("#country").empty().append("<option>请选择</option>");
+                                            $("#country").empty().append("<option value=''>请选择</option>");
                                             $(data).each(function () {
                                                 var it = "<option value='" + this.AddressId + "'>" + this.AddressName + "</option>";
                                                 $("#country").append(it);
@@ -66,14 +68,16 @@
                                         type: "get",
                                         dataType: "Json",
                                         success: function (data) {
-                                            $("#Month").empty().append("<option>请选择</option>");
+                                            $("#Month").empty().append("<option value=''>请选择</option>");
                                             $(data).each(function () {
                                                 var it = "<option value='" + this.Id + "'>" + this.Name + "</option>";
                                                 $("#Month").append(it);
+
                                             })
                                         }
                                     })
                                 }
+
                             </script>
                             <script>
                                 function city() {
@@ -83,7 +87,7 @@
                                         type: "get",
                                         dataType: "Json",
                                         success: function (data) {
-                                            $("#city").empty().append("<option>请选择</option>");
+                                            $("#city").empty().append("<option value=''>请选择</option>");
                                             $(data).each(function () {
                                                 var it = "<option value='" + this.AddressId + "'>" + this.AddressName + "</option>";
                                                 $("#city").append(it);
@@ -110,9 +114,47 @@
 
                             <div class="column-item for-btn">
                                 <div class="form-group">
-                                    <a href="#" class="btn btn-primary btn-block" id="">Search</a>
+                                    <a href="#" class="btn btn-primary btn-block" id="Search">Search</a>
                                 </div>
                             </div>
+                            <script>
+                                $("#Search").click(function () {
+                                    //var country= document.getElementById("country");
+                                    //var city = document.getElementById("city");
+                                    //var month = document.getElementById("Month");
+                                    var country = $("#country").val();
+                                    var city = $("#city").val();
+                                    var month = $("#Month").val();
+                                    //var itemcountry = []; var itemcity = []; var itemMonth = [];
+
+                                    //for (var i = 0; i < country.length; i++) {
+                                    //    if (country.options[i].selected) {
+                                    //        itemcountry.push(country[i].value);
+                                    //    }
+                                    //}
+                                    //for (var i = 0; i < city.length; i++) {
+                                    //    if (city.options[i].selected) {
+                                    //        itemcity.push(city[i].value);
+                                    //    }
+                                    //}
+                                    //for (var i = 0; i < month.length; i++) {
+                                    //    if (month.options[i].selected) {
+                                    //        itemMonth.push(month[i].value);
+                                    //    }
+                                    //}
+                                    //$.ajax({
+                                    //    url: "/Travel/SelectScenic",
+                                    //    type: "get",
+                                    //    //data: { itemcountry: JSON.stringify(itemcountry), itemcity: JSON.stringify(itemcity), itemMonth: JSON.stringify(itemMonth), },
+                                    //    dataType: "Json",
+                                    //    success: function (data) {
+
+                                    //    }
+                                    //})
+                                    location.href = "/Travel/Result_List?countyId=" + country + "&addressId=" + city + "&monthsId=" + month
+                                })
+                            </script>
+
                         </div>
                     </div>
                 </div>
